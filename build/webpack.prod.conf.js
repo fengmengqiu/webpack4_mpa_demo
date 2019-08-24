@@ -10,16 +10,17 @@ const webpackConfigBase = require('./webpack.base.conf');
 
 const webpackConfigProd = {
     mode: 'production', // 通过 mode 声明生产环境
-    
+
 	output: {
-		path: path.resolve(__dirname, '../dist'),
+		path: path.resolve(__dirname, '../dist/static'),
 		// 打包多出口文件
         filename: 'js/[name].[hash].js',
-        publicPath: '../'
+        publicPath: '../static',
+
     },
-    
+
     devtool: 'cheap-module-eval-source-map',
-    
+
 	plugins: [
 		//删除dist目录
 		new cleanWebpackPlugin(['dist'], {
